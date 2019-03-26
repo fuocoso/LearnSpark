@@ -1,7 +1,8 @@
-package com.spark.kafka
+package com.spark.demo
 
 import java.util.{Properties, UUID}
 
+import com.alibaba.fastjson.JSONObject
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 import scala.collection.mutable.ArrayBuffer
@@ -48,9 +49,8 @@ println(users.length)
   }
 
   def main(args: Array[String]): Unit = {
-    //bin/kafka-topics.sh --create --zookeeper linux01:2181/kafka09  --topic click --partitions 1  --replication-factor 1
     val topic = "click"
-    val brokers = "linux01:9092"
+    val brokers = "bigdata.server1:9092"
     val props = new Properties()
     props.put("bootstrap.servers", brokers)
     props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
